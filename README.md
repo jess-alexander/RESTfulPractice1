@@ -2,8 +2,8 @@
 Create an interface and background processing for CRUD
 
 
-| NAME   |   PATH           | HTTP Verb  |   Purpose  | MONGOOSE METHOD|
------|--------------------|-----------|---------------------------------------------
+|NAME |   PATH           | HTTP Verb  |   Purpose  | MONGOOSE METHOD|
+|-----|--------------------|-----------|-----------------------|----------------------|
 | INDEX   |  /dogs          |   GET     |List all dogs |Dog.find({}, function(err, dogsReturned){|
 | **NEW**     | **/dogs/new**    |   **GET**   |**Show new dog Form**|  |
 | **CREATE**  | **/dogs**      |  **POST**  |**Create a new dog, then redirect somewhere** | Dog.create(req.body.dog, function(err, |
