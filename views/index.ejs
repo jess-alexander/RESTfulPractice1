@@ -2,14 +2,13 @@
 <div class = "ui container">
 	<h1>All My Shoes </h1>
 
-
-	<% shoesPassedIn.forEach(function(shoes){ %>
-		<label>Shoe </label>
-		<p>type: <%= shoes.type %></p>
-		<p>color: <%= shoes.color %></p>
-		<p>size: <%= shoes.size %></p>
-		<p>preferred: <%= shoes.preferred %></p>
-	<%});%>
+	<% for(var i=0; i<shoesPassedIn.length;i++){ %>
+		<label>Shoe <%= i+1 %> </label>
+		<p>type: <%= shoesPassedIn[i].type %></p>
+		<p>color: <%= shoesPassedIn[i].color %></p>
+		<p>size: <%= shoesPassedIn[i].size %></p>
+		<p>preferred: <%= shoesPassedIn[i].preferred %></p>
+	<% } %>
 	
 
 </div>
