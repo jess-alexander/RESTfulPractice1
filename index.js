@@ -45,7 +45,7 @@ var Shoes = mongoose.model("Shoes", shoeSchema); //compile the schema into a mod
 ////////////////////////  ROUTE SECTION  ///////////////////////////////  
 ////////////////////////////////////////////////////////////////////////  
 
-//////////////////////////  ROOT ROUTE  //////////////////////////////    
+//////////////////////////  INDEX ROUTE  //////////////////////////////    
 app.get("/", function(req,res){
 	res.redirect("/shoes");
 });
@@ -53,12 +53,11 @@ app.get("/", function(req,res){
 app.get("/shoes",function(req,res){
 	Shoes.find({}, function(err, shoesReturned){
         if(err){
-            console.log("ERROR");
+            console.log("ERROR -- from index route");
         } else {
-            res.render("index",{shoes:shoesReturned})
+            res.render("index",{shoesPassedIn:shoesReturned});
         }
     });
-	res.render("index");
 });
 
 //////////////////////////  NEW / CREATE ROUTE  //////////////////////
