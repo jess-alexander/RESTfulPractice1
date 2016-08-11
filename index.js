@@ -23,7 +23,23 @@ var shoeSchema = new mongoose.Schema({
     preferred: Boolean
 });
 
-var Blog = mongoose.model("Shoe", shoeSchema); //compile the schema into a model.
+var Shoes = mongoose.model("Shoes", shoeSchema); //compile the schema into a model.
+
+///////////////////// CREATE BLOGS to fill database   //////////////////////////
+// Shoes.create({
+//     type: "sandal",
+//     color: "#3355cc",
+//     size: 9.5,
+//     preferred: true
+// }, function(err, newShoes){
+//      if (err){
+//         console.log("oh no! error!!");
+//         console.log(err);
+//     } else {
+//         console.log("look what I found!");
+//         console.log(newShoes);
+//     }
+// });
     
 ////////////////////////////////////////////////////////////////////////  
 ////////////////////////  ROUTE SECTION  ///////////////////////////////  
@@ -35,9 +51,28 @@ app.get("/", function(req,res){
 });
 
 app.get("/shoes",function(req,res){
+	Shoes.find({}, function(err, shoesReturned){
+        if(err){
+            console.log("ERROR");
+        } else {
+            res.render("index",{shoes:shoesReturned})
+        }
+    });
 	res.render("index");
 });
 
+//////////////////////////  NEW / CREATE ROUTE  //////////////////////
+app.get("/shoes/new", function(req,res){
+	res.render("new-shoes");
+});
+
+app.post("/shoes/", function(req,res){
+	Dog.create( );
+});
+
+//////////////////////////  SHOW ROUTE  //////////////////////////////    
+
+//////////////////////////  EDIT / UPDATE ROUTE  /////////////////////   
 
 
 //////////////////////////  APP LISTENER  //////////////////////////////    
